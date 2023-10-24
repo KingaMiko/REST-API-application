@@ -1,31 +1,29 @@
-## GoIT Node.js Course Template Homework
+# REST API for Managing Contacts
 
-Виконайте форк цього репозиторію для виконання домашніх завдань (2-6)
-Форк створить репозиторій на вашому http://github.com
+This repository serves as a template for creating a REST API to manage a collection of contacts. It is part of the GoIT Node.js Course homework assignments (2-6).
 
-Додайте ментора до колаборації
+## Getting Started
 
-Для кожної домашньої роботи створюйте свою гілку.
+To complete your homework assignments using this repository, follow these steps:
 
-- hw02
-- hw03
-- hw04
-- hw05
-- hw06
+1. Fork this repository to your GitHub account.
+2. Add your mentor as a collaborator for code review.
+3. Create a new branch for each homework assignment (e.g., `hw02`, `hw03`, `hw04`, `hw05`, `hw06`).
+4. Complete your homework on the respective branch.
+5. Create a pull request (PR) for your mentor to review.
+6. Make necessary corrections based on feedback from your mentor.
+7. Once approved, merge your homework branch into the master branch.
 
-Кожна нова гілка для др повинна робитися з master
+## Code Quality
 
-Після того, як ви закінчили виконувати домашнє завдання у своїй гілці, необхідно зробити пулл-реквест (PR). Потім додати ментора для рев'ю коду. Тільки після того, як ментор заапрувить PR, ви можете виконати мердж гілки з домашнім завданням у майстер.
+- Ensure that your JavaScript (JS) code is well-organized, readable, and follows best practices.
+- We use Prettier for code formatting to maintain consistency.
 
-Уважно читайте коментарі ментора. Виправте зауваження та зробіть коміт у гілці з домашнім завданням. Зміни підтягнуться у PR автоматично після того, як ви відправите коміт з виправленнями на github
-Після виправлення знову додайте ментора на рев'ю коду.
+## Available Commands
 
-- При здачі домашньої роботи є посилання на PR
-- JS-код чистий та зрозумілий, для форматування використовується Prettier
+- `npm start` &mdash; Starts the server in production mode.
+- `npm run start:dev` &mdash; Starts the server in development mode.
+- `npm run lint` &mdash; Checks the code with ESLint; run this before creating a PR and fix any linting errors.
+- `npm lint:fix` &mdash; Similar to the above command but also automatically fixes simple errors.
 
-### Команди:
-
-- `npm start` &mdash; старт сервера в режимі production
-- `npm run start:dev` &mdash; старт сервера в режимі розробки (development)
-- `npm run lint` &mdash; запустити виконання перевірки коду з eslint, необхідно виконувати перед кожним PR та виправляти всі помилки лінтера
-- `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними виправленнями простих помилок
+Happy coding!
