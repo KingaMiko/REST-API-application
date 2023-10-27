@@ -12,7 +12,7 @@ app.use(logger(formatsLogger));
 app.use("/api/contacts", contactsRouter);
 
 app.use((req, res) => {
-  res.status(404).json({ message: `whooops - ${req.path}` });
+  res.status(404).json({ message: `Whooops - Not found ${req.path}` });
 });
 
 app.use((err, req, res) => {
