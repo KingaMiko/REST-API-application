@@ -8,7 +8,7 @@ const {
   createContacts,
   deleteContacts,
   updateContacts,
-  //patchContact,
+  updateFavorite,
 } = contactsControllers;
 
 router.get("/", indexContacts);
@@ -16,6 +16,6 @@ router.get("/:contactId", showContacts);
 router.post("/", createContacts);
 router.delete("/:contactId", deleteContacts);
 router.put("/:contactId", updateContacts);
-//router.patch("/:contactId", patchContact);
+router.patch("/:contactId/favorite", updateFavorite);
 
 export default router;

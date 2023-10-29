@@ -16,3 +16,11 @@ export const updateContact = async ({ contactId, toUpdate, upsert = false }) =>
     { $set: toUpdate },
     { new: true, runValidators: true, strict: "throw", upsert }
   );
+export const updateStatusContact = async ({ contactId, favorite }) => {
+  const updatedContact = await Contact.findOneAndUpdate(
+    { _id: contactId },
+    { $set: { favorite } },
+    { new: true }
+  );
+  return updatedContact;
+};
