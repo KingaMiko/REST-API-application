@@ -9,3 +9,10 @@ export const addContact = ({ name, email, phone }) =>
 
 export const removeContact = (contactId) =>
   Contact.deleteOne({ _id: contactId });
+
+export const updateContact = async ({ contactId, toUpdate, upsert = false }) =>
+  Contact.findOneAndUpdate(
+    { _id: contactId },
+    { $set: toUpdate },
+    { new: true, runValidators: true, strict: "throw", upsert }
+  );
