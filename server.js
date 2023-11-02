@@ -1,14 +1,11 @@
 import app from "./app.js";
-import mongoose from "mongoose";
+import { connectToMongo } from "#drivers/mongo.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-const { DB_HOST: uriDb } = process.env;
-const connection = mongoose.connect(uriDb);
-
 async function startServer() {
   try {
-    await connection;
+    await connectToMongo();
     console.log("Database connection successful");
     app.listen(3000, function () {
       console.log("Server running. Use our API on port: 3000");

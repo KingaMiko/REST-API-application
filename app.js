@@ -1,26 +1,15 @@
 import express from "express";
-import logger from "morgan";
-import cors from "cors";
-import contactsRouter from "./routes/api/contacts.js";
+import contactsRouter from "#routes/api/contacts.js";
+import { corsPlugin, bodyParserPlugin } from "#plugins/corsPlugin.js";
+import { loggerPlugin } from "#plugins/loggerPlugin.js";
+import { noFound } from "#controllers/errors/noFound.js";
+import { remainingErrors } from "#controllers/errors/remainingErrors.js";
 
 const app = express();
-
-const formatsLogger = app.get("env") === "development" ? "dev" : "short";
-app.use(express.json());
-app.use(cors());
-app.use(logger(formatsLogger));
+corsPlugin(app);
+bodyParserPlugin(app);
+loggerPlugin(app);
 app.use("/api/contacts", contactsRouter);
-
-app.use((req, res) => {
-  res.status(404).json({ message: `Whooops - Not found ${req.path}` });
-});
-
-app.use((err, req, res) => {
-  if (err.name === "ValidationError") {
-    res.status(400).json({ message: err.message });
-  } else {
-    res.status(500).json({ message: err.message });
-  }
-});
-
+app.use(noFound);
+app.use(remainingErrors);
 export default app;

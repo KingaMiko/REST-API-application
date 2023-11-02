@@ -2,8 +2,8 @@ import {
   updateContact,
   addContact,
   fetchContact,
-} from "../../helpers/contacts/contactHelpers.js";
-import contactSchema from "../../validators/contactSchema.js";
+} from "#repository/contacts/contactRepository.js";
+import contactSchema from "#validators/contactSchema.js";
 
 export async function updateContacts(req, res, next) {
   try {

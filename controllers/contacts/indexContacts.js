@@ -1,4 +1,4 @@
-import { fetchContacts } from "../../helpers/contacts/contactHelpers.js";
+import { fetchContacts } from "#repository/contacts/contactRepository.js";
 
 export async function indexContacts(req, res, next) {
   try {

@@ -1,7 +1,7 @@
 import {
   updateStatusContact,
   fetchContact,
-} from "../../helpers/contacts/contactHelpers.js";
+} from "#repository/contacts/contactRepository.js";
 
 export async function updateFavorite(req, res, next) {
   try {

@@ -29,5 +29,15 @@
     "eslint-plugin-promise": "5.2.0",
     "nodemon": "2.0.15",
     "tsconfig-paths": "^4.2.0"
+  },
+  "imports": {
+    "#models/*": "./models/*",
+    "#plugins/*": "./plugins/*",
+    "#controllers/*": "./controllers/*",
+    "#drivers/*": "./drivers/*",
+    "#repository/*": "./repository/*",
+    "#routes/*": "./routes/*",
+    "#validators/*": "./validators/*",
+    "#errors/*": "./errors/*"
   }
 }

@@ -1,4 +1,4 @@
-import { removeContact } from "../../helpers/contacts/contactHelpers.js";
+import { removeContact } from "#repository/contacts/contactRepository.js";
 
 export async function deleteContacts(req, res, next) {
   try {

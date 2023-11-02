@@ -1,5 +1,5 @@
-import { addContact } from "../../helpers/contacts/contactHelpers.js";
-import contactSchema from "../../validators/contactSchema.js";
+import { addContact } from "#repository/contacts/contactRepository.js";
+import contactSchema from "#validators/contactSchema.js";
 
 export async function createContacts(req, res, next) {
   try {
