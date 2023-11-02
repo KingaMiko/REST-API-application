@@ -1,8 +1,8 @@
-import * as contactsOperations from "../../models/contacts.js";
+import { fetchContacts } from "#repository/contacts/contactRepository.js";
 
 export async function indexContacts(req, res, next) {
   try {
-    const contacts = await contactsOperations.listContacts();
+    const contacts = await fetchContacts();
     return res.json({
       status: "success",
       code: 200,

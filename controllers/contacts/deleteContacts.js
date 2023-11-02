@@ -1,10 +1,9 @@
-import * as contactsOperations from "../../models/contacts.js";
+import { removeContact } from "#repository/contacts/contactRepository.js";
 
 export async function deleteContacts(req, res, next) {
   try {
-    const { contactId } = req.params;
-    const removeConact = await contactsOperations.removeContact(contactId);
-    if (!removeConact) {
+    const contact = await removeContact(req.params.contactId);
+    if (!contact) {
       return res.status(404).json({
         status: "error",
         code: 404,
@@ -13,7 +12,7 @@ export async function deleteContacts(req, res, next) {
     }
     return res.json({
       status: "success",
-      code: 200,
+      code: 204,
       message: "contact deleted",
     });
   } catch (error) {

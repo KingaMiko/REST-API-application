@@ -1,9 +1,8 @@
-import * as contactsOperations from "../../models/contacts.js";
+import { fetchContact } from "#repository/contacts/contactRepository.js";
 
 export async function showContacts(req, res, next) {
   try {
-    const { contactId } = req.params;
-    const contact = await contactsOperations.getContactById(contactId);
+    const contact = await fetchContact(req.params.contactId);
     if (!contact) {
       return res.status(404).json({
         status: "error",
@@ -11,6 +10,7 @@ export async function showContacts(req, res, next) {
         message: "Not found",
       });
     }
+
     return res.json({
       status: "success",
       code: 200,
