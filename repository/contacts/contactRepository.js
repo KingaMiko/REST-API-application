@@ -12,9 +12,6 @@ export const fetchContacts = async (userId, { page, limit, favorite }) => {
 
   const total = await Contact.countDocuments(query);
 
-  console.log(`Contacts count: ${total}`);
-  console.log({ contacts, total });
-
   return {
     contacts,
     total,
