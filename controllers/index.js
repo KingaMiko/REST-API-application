@@ -8,3 +8,4 @@ export * from "./users/register.js";
 export * from "./users/login.js";
 export * from "./users/current.js";
 export * from "./users/logout.js";
+export * from "./users/subscription.js";

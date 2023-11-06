@@ -3,12 +3,14 @@ import * as usersControllers from "#controllers/index.js";
 import { authMiddleware } from "#middlewares/authMiddeware.js";
 
 const router = express.Router();
-const { registerUser, loginUser, logout, getCurrentUser } = usersControllers;
+const { registerUser, loginUser, logout, getCurrentUser, updateSubscription } =
+  usersControllers;
 
 router.post("/signup", registerUser);
 router.post("/login", loginUser);
 router.post("/logout", authMiddleware, logout);
 router.get("/protected", authMiddleware);
 router.get("/current", authMiddleware, getCurrentUser);
+router.patch("/subscription", authMiddleware, updateSubscription);
 
 export default router;
