@@ -1,11 +1,22 @@
-import passport from "passport";
+import jwt from "jsonwebtoken";
+import User from "#models/user.js";
 
-export default function authMiddleware(req, res, next) {
-  passport.authenticate("jwt", { session: false }, (err, user) => {
-    if (err || !user) {
-      return res.status(401).json({ message: "Unauthorized" });
+export const authMiddleware = async (req, res, next) => {
+  try {
+    const token = req.header("Authorization")?.replace("Bearer ", "");
+    if (!token) {
+      return res.status(401).json({ message: "Not authorized" });
+    }
+    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+
+    const user = await User.findOne({ _id: decoded.userId, token: token });
+
+    if (!user) {
+      throw new Error("User not found with this token");
     }
     req.user = user;
     next();
-  })(req, res, next);
-}
+  } catch (error) {
+    res.status(401).json({ message: "Not authorized" });
+  }
+};

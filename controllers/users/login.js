@@ -19,13 +19,8 @@ export const loginUser = async (req, res, next) => {
     if (!user) {
       throw new ErrorHandler(401, "Email or password is wrong");
     }
-
-    console.log("Porównywanie haseł dla użytkownika:", user.email);
-    console.log("Hasło wprowadzone przez użytkownika:", password);
-    console.log("Zahashowane hasło z bazy danych:", user.password);
-    console.log("Logowanie hasła:", password);
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log("Czy hasło się zgadza:", isMatch);
+
     if (!isMatch) {
       throw new ErrorHandler(401, "Email or password is wrong");
     }
