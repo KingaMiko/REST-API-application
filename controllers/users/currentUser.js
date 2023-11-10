@@ -12,6 +12,7 @@ const getCurrentUser = async (req, res) => {
     res.json({
       email: user.email,
       subscription: freshUser.subscription,
+      avatarURL: freshUser.avatarURL,
     });
   } catch (error) {
     res.status(401).json({ message: "Not authorized" });

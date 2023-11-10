@@ -9,6 +9,7 @@ const userSchema = Joi.object({
     "string.min": "Password must be at least 6 characters",
     "any.required": "Password is required",
   }),
+  avatarURL: Joi.string().uri(),
 });
 
 export default userSchema;

@@ -20,6 +20,7 @@ export const updateSubscription = async (req, res, next) => {
     res.status(200).json({
       email: updatedUser.email,
       subscription: updatedUser.subscription,
+      avatarURL: updatedUser.avatarURL,
     });
   } catch (error) {
     next(error);

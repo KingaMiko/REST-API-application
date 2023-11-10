@@ -15,8 +15,11 @@ corsPlugin(app);
 bodyParserPlugin(app);
 loggerPlugin(app);
 
+app.use(express.static("public"));
+
 app.use("/api/contacts", contactsRouter);
 app.use("/api/users", usersRouter);
+
 passportPlugin(app);
 app.use(noFound);
 app.use(remainingErrors);
