@@ -1,22 +1,14 @@
 import { addContact } from "#repository/contacts/contactRepository.js";
-import contactSchema from "#validators/contactSchema.js";
 
 export async function createContacts(req, res, next) {
   try {
-    const { error } = contactSchema.validate(req.body);
-    if (error) {
-      return res.status(400).json({
-        status: "error",
-        code: 400,
-        message: error.details[0].message,
-      });
-    }
-
     const { name, email, phone } = req.body;
+    const { _id } = req.user;
     const newContact = await addContact({
       name,
       email,
       phone,
+      userId: _id,
     });
 
     return res.status(201).json({

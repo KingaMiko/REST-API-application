@@ -1,7 +1,5 @@
 import app from "./app.js";
 import { connectToMongo } from "#drivers/mongo.js";
-import dotenv from "dotenv";
-dotenv.config();
 
 async function startServer() {
   try {
