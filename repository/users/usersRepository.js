@@ -23,3 +23,7 @@ export const updateToken = (userId, token) => {
 export const unsetUserToken = async (userId) => {
   return User.findByIdAndUpdate(userId, { token: null }, { new: true });
 };
+
+export const updateUserAvatar = (userId, avatarURL) => {
+  return User.findByIdAndUpdate(userId, { avatarURL }, { new: true });
+};
