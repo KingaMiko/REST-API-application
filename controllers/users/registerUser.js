@@ -2,16 +2,10 @@ import {
   createUser,
   findUserByEmail,
 } from "#repository/users/usersRepository.js";
-import userSchema from "#validators/userSchema.js";
 
 export const registerUser = async (req, res, next) => {
   try {
-    const { error, value } = userSchema.validate(req.body);
-    if (error) {
-      return res.status(400).json({ message: error.details[0].message });
-    }
-
-    const { email, password } = value;
+    const { email, password } = req.body;
 
     const existingUser = await findUserByEmail(email);
 
