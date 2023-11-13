@@ -1,0 +1,62 @@
+131ab756b3139c9459bec563c3db7cc8
+/* istanbul ignore next */
+function cov_qee9rxjmc() {
+  var path = "/Users/kinga/Documents/GOIT/github/Node/nodejs-project/validators/userSchema.js";
+  var hash = "367a44b2fd241bf02a715b525f468d5bea87ad24";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/kinga/Documents/GOIT/github/Node/nodejs-project/validators/userSchema.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 19
+        },
+        end: {
+          line: 13,
+          column: 2
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "367a44b2fd241bf02a715b525f468d5bea87ad24"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_qee9rxjmc = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_qee9rxjmc();
+import Joi from "joi";
+const userSchema =
+/* istanbul ignore next */
+(cov_qee9rxjmc().s[0]++, Joi.object({
+  email: Joi.string().email().required().messages({
+    "string.email": "Please enter a valid email address",
+    "any.required": "Email is required"
+  }),
+  password: Joi.string().min(6).required().messages({
+    "string.min": "Password must be at least 6 characters",
+    "any.required": "Password is required"
+  }),
+  avatarURL: Joi.string().uri()
+}));
+export default userSchema;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfcWVlOXJ4am1jIiwiYWN0dWFsQ292ZXJhZ2UiLCJKb2kiLCJ1c2VyU2NoZW1hIiwicyIsIm9iamVjdCIsImVtYWlsIiwic3RyaW5nIiwicmVxdWlyZWQiLCJtZXNzYWdlcyIsInBhc3N3b3JkIiwibWluIiwiYXZhdGFyVVJMIiwidXJpIl0sInNvdXJjZXMiOlsidXNlclNjaGVtYS5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgSm9pIGZyb20gXCJqb2lcIjtcblxuY29uc3QgdXNlclNjaGVtYSA9IEpvaS5vYmplY3Qoe1xuICBlbWFpbDogSm9pLnN0cmluZygpLmVtYWlsKCkucmVxdWlyZWQoKS5tZXNzYWdlcyh7XG4gICAgXCJzdHJpbmcuZW1haWxcIjogXCJQbGVhc2UgZW50ZXIgYSB2YWxpZCBlbWFpbCBhZGRyZXNzXCIsXG4gICAgXCJhbnkucmVxdWlyZWRcIjogXCJFbWFpbCBpcyByZXF1aXJlZFwiLFxuICB9KSxcbiAgcGFzc3dvcmQ6IEpvaS5zdHJpbmcoKS5taW4oNikucmVxdWlyZWQoKS5tZXNzYWdlcyh7XG4gICAgXCJzdHJpbmcubWluXCI6IFwiUGFzc3dvcmQgbXVzdCBiZSBhdCBsZWFzdCA2IGNoYXJhY3RlcnNcIixcbiAgICBcImFueS5yZXF1aXJlZFwiOiBcIlBhc3N3b3JkIGlzIHJlcXVpcmVkXCIsXG4gIH0pLFxuICBhdmF0YXJVUkw6IEpvaS5zdHJpbmcoKS51cmkoKSxcbn0pO1xuXG5leHBvcnQgZGVmYXVsdCB1c2VyU2NoZW1hO1xuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBZVk7SUFBQUEsYUFBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsYUFBQTtBQWZaLE9BQU9FLEdBQUcsTUFBTSxLQUFLO0FBRXJCLE1BQU1DLFVBQVU7QUFBQTtBQUFBLENBQUFILGFBQUEsR0FBQUksQ0FBQSxPQUFHRixHQUFHLENBQUNHLE1BQU0sQ0FBQztFQUM1QkMsS0FBSyxFQUFFSixHQUFHLENBQUNLLE1BQU0sQ0FBQyxDQUFDLENBQUNELEtBQUssQ0FBQyxDQUFDLENBQUNFLFFBQVEsQ0FBQyxDQUFDLENBQUNDLFFBQVEsQ0FBQztJQUM5QyxjQUFjLEVBQUUsb0NBQW9DO0lBQ3BELGNBQWMsRUFBRTtFQUNsQixDQUFDLENBQUM7RUFDRkMsUUFBUSxFQUFFUixHQUFHLENBQUNLLE1BQU0sQ0FBQyxDQUFDLENBQUNJLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQ0gsUUFBUSxDQUFDLENBQUMsQ0FBQ0MsUUFBUSxDQUFDO0lBQ2hELFlBQVksRUFBRSx3Q0FBd0M7SUFDdEQsY0FBYyxFQUFFO0VBQ2xCLENBQUMsQ0FBQztFQUNGRyxTQUFTLEVBQUVWLEdBQUcsQ0FBQ0ssTUFBTSxDQUFDLENBQUMsQ0FBQ00sR0FBRyxDQUFDO0FBQzlCLENBQUMsQ0FBQztBQUVGLGVBQWVWLFVBQVUifQ==
