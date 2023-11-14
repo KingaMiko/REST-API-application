@@ -1,43 +1,59 @@
-import request from "supertest";
-import app from "../app.js";
-import * as usersRepo from "#repository/users/usersRepository.js";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import { jest as jestGlobals } from "@jest/globals";
+import { createRequire } from "module";
 
-jest.mock("#repository/users/usersRepository.js");
-jest.mock("bcrypt");
-jest.mock("jsonwebtoken");
+const require = createRequire(import.meta.url);
+
+jestGlobals.unstable_mockModule("#repository/users/usersRepository.js", () => ({
+  findUserByEmail: jestGlobals.fn(),
+  updateToken: jestGlobals.fn(),
+}));
 
 describe("Login User Controller", () => {
-  beforeAll(() => {
+  let bcrypt, jwt;
+
+  beforeEach(() => {
+    jestGlobals.clearAllMocks();
+    bcrypt = require("bcrypt");
+    jwt = require("jsonwebtoken");
+
+    jestGlobals.spyOn(bcrypt, "compare").mockResolvedValue(true);
+    jestGlobals.spyOn(jwt, "sign").mockReturnValue("mocked_token");
+  });
+
+  it("should authenticate a user and return a token", async () => {
+    const usersRepo = await import("#repository/users/usersRepository.js");
+
     usersRepo.findUserByEmail.mockResolvedValue({
       _id: "123",
       email: "test@example.com",
-      password: "hashedpassword",
+      password: "hashed_password",
       subscription: "starter",
-      avatarURL: "url",
     });
-    bcrypt.compare.mockResolvedValue(true);
-    jwt.sign.mockReturnValue("mocked_token");
-  });
 
-  it("should return status code 200 and a token on successful login", async () => {
-    const response = await request(app)
-      .post("/api/users/login")
-      .send({ email: "test@example.com", password: "password123" });
+    const { loginUser } = await import("#controllers/users/loginUser.js");
 
-    expect(response.statusCode).toBe(200);
-    expect(response.body.token).toBeDefined();
-    expect(response.body.user).toEqual(
-      expect.objectContaining({
+    const mockReq = {
+      body: { email: "test@example.com", password: "password123" },
+    };
+    const mockRes = {
+      status: jestGlobals.fn().mockReturnThis(),
+      json: jestGlobals.fn(),
+    };
+    const mockNext = jestGlobals.fn();
+
+    await loginUser(mockReq, mockRes, mockNext);
+
+    expect(mockRes.status).toHaveBeenCalledWith(200);
+    expect(mockRes.json).toHaveBeenCalledWith({
+      token: "mocked_token",
+      user: {
         email: "test@example.com",
         subscription: "starter",
-        avatarURL: "url",
-      })
-    );
+      },
+    });
   });
 
-  afterAll(() => {
-    jest.restoreAllMocks();
+  afterEach(() => {
+    jestGlobals.restoreAllMocks();
   });
 });
