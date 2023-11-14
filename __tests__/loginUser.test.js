@@ -1,5 +1,6 @@
 import { jest as jestGlobals } from "@jest/globals";
 import { createRequire } from "module";
+import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 const require = createRequire(import.meta.url);
 
@@ -51,6 +52,46 @@ describe("Login User Controller", () => {
         subscription: "starter",
       },
     });
+  });
+
+  it("should return status code 401 for invalid email or password", async () => {
+    const usersRepo = await import("#repository/users/usersRepository.js");
+    usersRepo.findUserByEmail.mockResolvedValue(null);
+
+    const { loginUser } = await import("#controllers/users/loginUser.js");
+
+    const mockReq = {
+      body: { email: "wrong@example.com", password: "password123" },
+    };
+    const mockRes = {
+      status: jestGlobals.fn().mockReturnThis(),
+      json: jestGlobals.fn(),
+    };
+    const mockNext = jestGlobals.fn();
+
+    await loginUser(mockReq, mockRes, mockNext);
+
+    expect(mockNext).toHaveBeenCalledWith(expect.any(ErrorHandler));
+  });
+
+  it("should handle server errors", async () => {
+    const usersRepo = await import("#repository/users/usersRepository.js");
+    usersRepo.findUserByEmail.mockRejectedValue(new Error("Server error"));
+
+    const { loginUser } = await import("#controllers/users/loginUser.js");
+
+    const mockReq = {
+      body: { email: "test@example.com", password: "password123" },
+    };
+    const mockRes = {
+      status: jestGlobals.fn().mockReturnThis(),
+      json: jestGlobals.fn(),
+    };
+    const mockNext = jestGlobals.fn();
+
+    await loginUser(mockReq, mockRes, mockNext);
+
+    expect(mockNext).toHaveBeenCalledWith(expect.any(Error));
   });
 
   afterEach(() => {

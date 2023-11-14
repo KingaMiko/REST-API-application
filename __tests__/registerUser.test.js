@@ -67,6 +67,26 @@ describe("Register User Controller", () => {
     expect(mockRes.json).toHaveBeenCalledWith({ message: "Email in use" });
   });
 
+  it("should handle server errors", async () => {
+    const usersRepo = await import("#repository/users/usersRepository.js");
+    usersRepo.findUserByEmail.mockRejectedValue(new Error("Server error"));
+
+    const { registerUser } = await import("#controllers/users/registerUser.js");
+
+    const mockReq = {
+      body: { email: "test@example.com", password: "password123" },
+    };
+    const mockRes = {
+      status: jestGlobals.fn().mockReturnThis(),
+      json: jestGlobals.fn(),
+    };
+    const mockNext = jestGlobals.fn();
+
+    await registerUser(mockReq, mockRes, mockNext);
+
+    expect(mockNext).toHaveBeenCalledWith(expect.any(Error));
+  });
+
   afterEach(() => {
     jestGlobals.restoreAllMocks();
   });
