@@ -1,11 +1,12 @@
 import subscriptionSchema from "#validators/subscriptionSchema.js";
 import User from "#models/user.js";
+import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 export const updateSubscription = async (req, res, next) => {
   try {
     const { error, value } = subscriptionSchema.validate(req.body);
     if (error) {
-      return res.status(400).json({ message: error.details[0].message });
+      throw new ErrorHandler(400, error.details[0].message);
     }
 
     const { subscription } = value;
@@ -20,6 +21,7 @@ export const updateSubscription = async (req, res, next) => {
     res.status(200).json({
       email: updatedUser.email,
       subscription: updatedUser.subscription,
+      avatarURL: updatedUser.avatarURL,
     });
   } catch (error) {
     next(error);

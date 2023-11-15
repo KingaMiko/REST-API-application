@@ -4,6 +4,7 @@ import {
   fetchContact,
 } from "#repository/contacts/contactRepository.js";
 import contactSchema from "#validators/contactSchema.js";
+import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 export async function updateContacts(req, res, next) {
   try {
@@ -12,12 +13,7 @@ export async function updateContacts(req, res, next) {
 
     const { error } = contactSchema.validate({ name, email, phone });
     if (error) {
-      const errorMessage = error.details[0].message;
-      return res.status(400).json({
-        status: "error",
-        code: 400,
-        message: errorMessage,
-      });
+      throw new ErrorHandler(400, error.details[0].message);
     }
     const existingContact = await fetchContact(contactId);
     if (existingContact) {

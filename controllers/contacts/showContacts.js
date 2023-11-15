@@ -1,14 +1,11 @@
 import { fetchContact } from "#repository/contacts/contactRepository.js";
+import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 export async function showContacts(req, res, next) {
   try {
     const contact = await fetchContact(req.params.contactId);
     if (!contact) {
-      return res.status(404).json({
-        status: "error",
-        code: 404,
-        message: "Not found",
-      });
+      throw new ErrorHandler(404, "Not found");
     }
 
     return res.json({
