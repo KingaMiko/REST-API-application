@@ -21,6 +21,10 @@ export const loginUser = async (req, res, next) => {
     }
     const isMatch = await bcrypt.compare(password, user.password);
 
+    if (!user.verify) {
+      throw new ErrorHandler(401, "Email not verified");
+    }
+
     if (!isMatch) {
       throw new ErrorHandler(401, "Email or password is wrong");
     }

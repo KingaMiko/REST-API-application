@@ -13,6 +13,7 @@ const {
   getCurrentUser,
   updateSubscription,
   updateAvatar,
+  verifyUser,
 } = usersControllers;
 
 router.post("/signup", bodyValidate(userSchema), registerUser);
@@ -22,5 +23,6 @@ router.get("/protected", authMiddleware);
 router.get("/current", authMiddleware, getCurrentUser);
 router.patch("/subscription", authMiddleware, updateSubscription);
 router.patch("/avatars", authMiddleware, upload.single("avatar"), updateAvatar);
+router.get("/verify/:verificationToken", verifyUser);
 
 export default router;
