@@ -14,6 +14,7 @@ const {
   updateSubscription,
   updateAvatar,
   verifyUser,
+  resendVerificationEmail,
 } = usersControllers;
 
 router.post("/signup", bodyValidate(userSchema), registerUser);
@@ -24,5 +25,6 @@ router.get("/current", authMiddleware, getCurrentUser);
 router.patch("/subscription", authMiddleware, updateSubscription);
 router.patch("/avatars", authMiddleware, upload.single("avatar"), updateAvatar);
 router.get("/verify/:verificationToken", verifyUser);
+router.post("/verify/", resendVerificationEmail);
 
 export default router;

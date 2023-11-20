@@ -11,3 +11,4 @@ export * from "./users/logoutUser.js";
 export * from "./users/subscriptionUser.js";
 export * from "./users/updateAvatar.js";
 export * from "./users/verifyUser.js";
+export * from "./users/resendVerificationEmail.js";
