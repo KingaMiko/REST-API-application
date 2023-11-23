@@ -1,14 +1,16 @@
-import User from "#models/user.js";
 import bcrypt from "bcrypt";
 import gravatar from "gravatar";
 
-export const createUser = async ({ email, password }) => {
+import User from "#models/user.js";
+
+export const createUser = async ({ email, password, verificationToken }) => {
   const hashedPassword = await bcrypt.hash(password, 12);
   const avatarURL = gravatar.url(email, { s: "250", r: "pg", d: "mm" });
   const user = await User.create({
     email,
     password: hashedPassword,
     avatarURL,
+    verificationToken,
   });
   return user;
 };

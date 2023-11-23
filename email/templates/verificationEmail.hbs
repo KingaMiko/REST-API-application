@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <style>
+      body { font-family: 'Arial', sans-serif; background-color: #f7f7f7; color:
+      #444; line-height: 1.6; margin: 0; padding: 0; } .container { max-width:
+      600px; margin: 40px auto; padding: 20px; background-color: #ffffff;
+      border: 1px solid #d4d4d4; border-radius: 5px; } .header { padding: 10px
+      0; border-bottom: 1px solid #d4d4d4; color: #333; } .header h1 {
+      margin-left: 20px; font-size: 22px; } .content { padding: 20px; color:
+      #555; } .content p { margin-left: 20px; margin-right: 20px; font-size:
+      16px; } .footer { padding: 15px 20px; text-align: left; font-size: 14px;
+      color: #888; border-top: 1px solid #d4d4d4; } .footer p { margin: 0; }
+      .verify-link { color: #1a73e8; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Email Verification Required</h1>
+      </div>
+      <div class="content">
+        <p>To complete your registration, please verify your email address by
+          clicking the link below:</p>
+        <p><a href="{{verificationUrl}}" class="verify-link">Verify My Email</a></p>
+      </div>
+      <div class="footer">
+        <p>If you did not request this email, you can safely ignore it.</p>
+      </div>
+    </div>
+  </body>
+</html>

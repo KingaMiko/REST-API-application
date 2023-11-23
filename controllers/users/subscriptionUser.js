@@ -1,5 +1,7 @@
 import subscriptionSchema from "#validators/subscriptionSchema.js";
+
 import User from "#models/user.js";
+
 import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 export const updateSubscription = async (req, res, next) => {

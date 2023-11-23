@@ -1,5 +1,6 @@
-import { jest as jestGlobals } from "@jest/globals";
 import { createRequire } from "module";
+import { jest as jestGlobals } from "@jest/globals";
+
 import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 const require = createRequire(import.meta.url);

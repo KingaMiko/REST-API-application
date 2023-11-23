@@ -1,29 +1,58 @@
-# REST API for Managing Contacts
+# REST API for Contact Management
 
-This repository serves as a template for creating a REST API to manage a collection of contacts. It is part of the GoIT Node.js Course homework assignments (2-6).
+This project is a RESTful API developed for managing a contact list. It allows users to create, read, update, and delete contact information. Additionally, it includes user authentication and avatar management features.
 
-## Getting Started
+## Introduction
 
-To complete your homework assignments using this repository, follow these steps:
+This API was created as a part of a learning project to understand the fundamentals of Node.js, Express, MongoDB, and implementing user authentication. It demonstrates the ability to set up a secure RESTful API service with a focus on good practices for authentication and file handling.
 
-1. Fork this repository to your GitHub account.
-2. Add your mentor as a collaborator for code review.
-3. Create a new branch for each homework assignment (e.g., `hw02`, `hw03`, `hw04`, `hw05`, `hw06`).
-4. Complete your homework on the respective branch.
-5. Create a pull request (PR) for your mentor to review.
-6. Make necessary corrections based on feedback from your mentor.
-7. Once approved, merge your homework branch into the master branch.
+## Technologies
 
-## Code Quality
+<ul> 
+<li>Node.js</li>
+<li>Express.js</li>
+<li>MongoDB</li>
+<li>Mongoose</li>
+<li>JWT (JSON Web Tokens) for authentication</li>
+<li>Passport.js for authentication strategies</li>
+<li>Multer for file upload</li>
+<li>Jimp for image processing</li>
+<li>SendGrid for email verification</li>
+<li>Jest for testing</li>
+<li>Swagger for API documentation</li>
+</ul>
 
-- Ensure that your JavaScript (JS) code is well-organized, readable, and follows best practices.
-- We use Prettier for code formatting to maintain consistency.
+## Instalation
 
-## Available Commands
+To run this project locally, follow these steps:
 
-- `npm start` &mdash; Starts the server in production mode.
-- `npm run start:dev` &mdash; Starts the server in development mode.
-- `npm run lint` &mdash; Checks the code with ESLint; run this before creating a PR and fix any linting errors.
-- `npm lint:fix` &mdash; Similar to the above command but also automatically fixes simple errors.
+```bash
+git clone https://github.com/kingamiko/REST-API-application.git
+cd your-repo-name
+npm install
+npm start
+```
 
-Happy coding!
+## Usage
+
+Once the server is running, you can access the API endpoints. The Swagger documentation is available at http://localhost:3000/api-docs for detailed information about each endpoint.
+
+## Features
+
+<ul>
+<li>CRUD operations for contact management</li>
+<li>User registration, login, and email verification</li>
+<li>Password encryption</li>
+<li>JWT based authentication with Passport</li>
+<li>Avatar upload with image resizing</li>
+<li>Email notifications for account verification (SendGrid)</li>
+<li>Swagger documentation for easy API testing and interaction</li>
+</ul>
+
+## License
+
+This project is open-sourced under the [MIT License](LICENSE).
+
+## Author
+
+[Kinga Mikołajczyk](https://github.com/twoj_username_na_github)

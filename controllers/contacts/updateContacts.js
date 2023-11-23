@@ -3,7 +3,9 @@ import {
   addContact,
   fetchContact,
 } from "#repository/contacts/contactRepository.js";
+
 import contactSchema from "#validators/contactSchema.js";
+
 import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 export async function updateContacts(req, res, next) {
