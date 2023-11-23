@@ -55,4 +55,4 @@ This project is open-sourced under the [MIT License](LICENSE).
 
 ## Author
 
-[Kinga Mikołajczyk](https://github.com/twoj_username_na_github)
+[Kinga Mikołajczyk](https://github.com/kingamiko)
