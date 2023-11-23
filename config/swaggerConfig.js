@@ -7,7 +7,17 @@ const options = {
       title: "REST API application",
       version: "1.0.0",
       description: "API documentation",
+      contact: {
+        name: "Kinga Mikołajczyk",
+        url: "https://github.com/kingamiko",
+      },
     },
+    servers: [
+      {
+        url: "http://localhost:3000",
+        description: "Development server",
+      },
+    ],
     components: {
       securitySchemes: {
         ApiKeyAuth: {
