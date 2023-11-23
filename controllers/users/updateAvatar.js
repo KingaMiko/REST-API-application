@@ -1,6 +1,8 @@
 import fs from "fs/promises";
 import jimp from "jimp";
+
 import { updateUserAvatar } from "#repository/users/usersRepository.js";
+
 import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 export const updateAvatar = async (req, res, next) => {

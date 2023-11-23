@@ -1,11 +1,13 @@
 import sgMail from "@sendgrid/mail";
-import dotenv from "dotenv";
 import handlebars from "handlebars";
+
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
+import dotenv from "dotenv";
 dotenv.config();
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const loadTemplate = (templateName, data) => {

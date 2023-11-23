@@ -1,4 +1,5 @@
 import { findUserByEmail } from "#repository/users/usersRepository.js";
+
 import { sendVerificationEmail } from "#email/emailSender.js";
 
 export const resendVerificationEmail = async (req, res) => {

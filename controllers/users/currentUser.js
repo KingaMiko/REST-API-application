@@ -1,4 +1,5 @@
 import User from "#models/user.js";
+
 import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 const getCurrentUser = async (req, res) => {

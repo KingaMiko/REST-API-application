@@ -1,5 +1,6 @@
 import passport from "passport";
 import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt";
+
 import User from "#models/user.js";
 
 export default function setJWTStrategy() {

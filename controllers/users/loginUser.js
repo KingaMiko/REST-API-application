@@ -1,10 +1,13 @@
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+
 import {
   findUserByEmail,
   updateToken,
 } from "#repository/users/usersRepository.js";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+
 import userSchema from "#validators/userSchema.js";
+
 import { ErrorHandler } from "#middlewares/errorHandler.js";
 
 export const loginUser = async (req, res, next) => {

@@ -1,4 +1,5 @@
 import User from "#models/user.js";
+
 export const verifyUser = async (req, res) => {
   try {
     const { verificationToken } = req.params;
